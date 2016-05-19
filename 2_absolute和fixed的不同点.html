@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>absolute和fixed的不同点</title>
+    <style>
+        .wrap {
+            width: 99%;
+            padding: 10px;
+            height: 400px;
+            background: #999;
+            position: relative;
+        }
+        .box {
+            width: 88%;
+            height: 200px;
+            background: yellow;
+            position: absolute;
+            left: 50px;
+        }
+        .box1 {
+            width: 60%;
+            height: 50px;
+            background: #00F;
+            position: absolute;
+            top: 0;
+            left: 5px;
+        }
+
+        .box2 {
+            width: 70%;
+            height: 30px;
+            background: #C00;
+            position: fixed;
+            top: 0;
+            right: 10px;;
+        }
+
+        .content {
+            width: 80%;
+            height: 160px;
+            background: green;
+        }
+    </style>
+</head>
+<body>
+<!--
+不同点1: 设置偏移量时, 便以参照物基准
+    absolute
+        1. 无已定位祖先元素, 以<html>为基准偏移
+        2. 有已定位祖先元素, 以距其最近的,已定位的祖先元素为基准偏移
+    fixed
+        1. 不管有无已定位祖先元素, 都以浏览器可视窗口为基准偏移
+不同点2: 表现形式(产生滚动条时)
+    absolute
+        1. 位置会随滚动条变化
+    fixed
+        1. 位置固定, 不会随滚动条变化
+        2. 被他遮盖的元素, 可以从其下穿过
+-->
+<div class="wrap">
+    <div class="box">
+        <div class="box1">box1</div>
+        <div class="box2">box2</div>
+        box
+    </div>
+    <div class="content">content</div>
+    wrapper
+</div>
+</body>
+</html>
